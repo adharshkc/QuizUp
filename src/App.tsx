@@ -1,10 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import StartPage from './pages/StartPage'
 
 function App() {
 
   return (
     <>
-     <h1 className='text-red-500'>hello</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<StartPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

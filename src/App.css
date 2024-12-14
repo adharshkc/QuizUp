@@ -1,7 +1,15 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(175,156,243,1) 100%);
 }
 
+@font-face {
+  font-family: "Sora";
+  src: url("./assets/fonts/Sora-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
