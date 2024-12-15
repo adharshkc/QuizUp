@@ -32,13 +32,12 @@ const Quiz = () => {
         <div className="bg-white text-center px-8 py-4 rounded-lg shadow-lg">
           <span className="text-lg font-semibold">Option 1</span>
         </div>
-      {/* </div> */}
+        {/* </div> */}
       </div>
       <div>
-      <button className="bg-red-500 text-white mt-10 font-semibold text-2xl px-8 py-4 w-1/6 rounded-full hover:bg-red-600 transition duration-300 shadow-md">
-     
-       Next 
-    </button>
+        <button className="bg-red-500 text-white mt-10 font-semibold text-2xl px-8 py-4 w-1/6 rounded-full hover:bg-red-600 transition duration-300 shadow-md">
+          Next
+        </button>
       </div>
     </div>
     //   <Popup open={open} onClose={()=>setOpen(false)}>
