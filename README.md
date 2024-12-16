@@ -13,7 +13,7 @@ A modern and responsive quiz application built using **React** and **Vite**. Thi
 
 ## Demo
 
-[https://quiz-up-kappa.vercel.app/](#) 
+[https://quiz-up-kappa.vercel.app/](https://quiz-up-kappa.vercel.app/) 
 
 ## Tech Stack
 
