@@ -1,9 +1,31 @@
+import { useEffect } from "react"
 import popper from "../assets/icons/popper.svg"
 import ProgressCircle from "./ProgressCircle"
+import { useNavigate } from "react-router-dom"
+import useQuiz from "../hooks/useQuiz"
+import { HashLoader } from "react-spinners"
 
 
 const Quiz = () => {
+  const navigate = useNavigate()
+  const session = sessionStorage.getItem("userSession")
+  console.log(session)
+  const { loading, quiz, error } = useQuiz()
+
+  useEffect(() => {
+    if (!session || session == "") {
+      navigate('/')
+    }
+  }, [session])
   // const [open, setOpen] = useState(true)
+  if (loading) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+
+        <HashLoader size={90} color="#e50ef7" />
+      </div>
+    )
+  }
   return (
     <div className="h-screen">
       <div className="flex justify-center">
@@ -40,26 +62,9 @@ const Quiz = () => {
         </button>
       </div>
     </div>
-    //   <Popup open={open} onClose={()=>setOpen(false)}>
-    //   <div className="text-center w-56">
-
-    //     <div className="mx-auto my-4 w-48">
-    //       <h3 className="text-lg font-black text-gray-800">Confirm Delete</h3>
-    //       <p className="text-sm text-gray-500">
-    //         Are you sure you want to delete this item?
-    //       </p>
-    //     </div>
-    //     <div className="flex gap-4">
-    //       <button className="btn btn-danger w-full">Delete</button>
-
-    //     </div>
-    //   </div>
-    // </Popup>
   )
 }
 
 export default Quiz
-
-/* Progress */
 
 

@@ -5,6 +5,8 @@ import logo from "../assets/image.png"
 const Start = () => {
     const navigate = useNavigate()
    const handleClick = ()=>{
+    const session = "user" +" " + Math.floor(Math.random()*100)
+         sessionStorage.setItem("userSession", session)
         navigate('/quiz')
     }
     return (
@@ -23,11 +25,9 @@ const Start = () => {
                 </h1>
             </div>
             <div className="flex justify-center pt-10">
-
                 <div onClick={handleClick} className="bg-white flex justify-center items-center rounded-full h-48 w-48 p-10 shadow-lg transform transition-transform cursor-pointer duration-300 hover:scale-105">
                     <h1 className="text-red-500 text-4xl font-bold">Start</h1>
                 </div>
-
             </div>
         </div>
     )
