@@ -5,11 +5,11 @@ import { useLocation, useNavigate } from "react-router-dom"
 const Result = () => {
     const location = useLocation()
     const navigate = useNavigate()
-    const {score, correctScore, incorrectScore} = location.state;
+    const { score, correctScore, incorrectScore } = location.state;
     console.log(incorrectScore)
-    const scorePercent = (score/5)*100
+    const scorePercent = (score / 5) * 100
 
-    const handleClick = ()=>{
+    const handleClick = () => {
         navigate('/')
     }
     return (
@@ -33,8 +33,11 @@ const Result = () => {
                 </div>
             </div>
             <div>
-                <button onClick={handleClick} className="bg-red-500 text-white mt-10 font-semibold text-2xl px-8 py-4 w-1/6 rounded-full hover:bg-red-600 transition duration-300 shadow-md">
-                    Start Again
+                <button
+                    onClick={handleClick}
+                    className="bg-red-500 text-white mt-6 md:mt-10 font-semibold text-lg md:text-2xl px-6 md:px-8 py-2 md:py-4 w-full max-w-xs rounded-full hover:bg-red-600 transition duration-300 shadow-md"
+                >
+                    Start again
                 </button>
             </div>
         </div>

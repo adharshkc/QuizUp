@@ -87,32 +87,43 @@ const Quiz = () => {
     }
   }
   return (
-    <div className="h-screen">
-      <div className="flex justify-center">
-        <img src={popper} alt="" />
-      </div>
-      <div className="flex mb-3 justify-center">
-        <ProgressCircle currentStep={5} totalSteps={10} />
-      </div>
-      <div className="flex justify-center">
-
-        <div className="bg-white w-4/6 p-16 max-w-4xl">
-          <h1 className=" text-3xl text-center font-nunito font-bold ">{atob(question.question)}</h1>
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-6 mt-10 px-[32rem]">
-        {options.map((option, index)=>
-        <div key={index} onClick={()=>handleClick(option, index)}   className={` text-center px-8 py-4 cursor-pointer rounded-lg shadow-lg ${selectedOption === index ? 'bg-orange-100' : 'bg-white'}`}>
-          <span className="text-lg font-semibold">{atob(option)}</span>
-        </div>
-        )}
-      </div>
-      <div>
-        <button onClick={handleNext} className="bg-red-500 text-white mt-10 font-semibold text-2xl px-8 py-4 w-1/6 rounded-full hover:bg-red-600 transition duration-300 shadow-md">
-          Next
-        </button>
-      </div>
+    <div className="h-screen px-4 md:px-8 lg:px-16">
+  <div className="flex justify-center">
+    <img src={popper} alt="" className="w-3/4 md:w-1/2 lg:w-1/3" />
+  </div>
+  <div className="flex mb-3 justify-center">
+    <ProgressCircle currentStep={parseInt(questionNumber)} totalSteps={5} />
+  </div>
+  <div className="flex justify-center">
+    <div className="bg-white w-full max-w-4xl p-4 md:p-8 lg:p-16">
+      <h1 className="text-lg md:text-2xl lg:text-3xl text-center font-nunito font-bold">
+        {atob(question.question)}
+      </h1>
     </div>
+  </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mt-10 px-4 md:px-20 lg:px-32">
+    {options.map((option, index) => (
+      <div
+        key={index}
+        onClick={() => handleClick(option, index)}
+        className={`text-center px-4 md:px-8 py-2 md:py-4 cursor-pointer rounded-lg shadow-lg ${
+          selectedOption === index ? 'bg-orange-100' : 'bg-white'
+        }`}
+      >
+        <span className="text-sm md:text-lg font-semibold">{atob(option)}</span>
+      </div>
+    ))}
+  </div>
+  <div className="flex justify-center">
+    <button
+      onClick={handleNext}
+      className="bg-red-500 text-white mt-6 md:mt-10 font-semibold text-lg md:text-2xl px-6 md:px-8 py-2 md:py-4 w-full max-w-xs rounded-full hover:bg-red-600 transition duration-300 shadow-md"
+    >
+      Next
+    </button>
+  </div>
+</div>
+
   )
 }
 
