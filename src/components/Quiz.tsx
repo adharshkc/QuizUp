@@ -20,13 +20,10 @@ const Quiz = () => {
     return [...wrong, right].sort(() => Math.random() - 0.5)
   }
 
-  // Default to an empty array to avoid conditional hook calls
   const safeQuizes = quizes || []
   const currentQuestionNumber = questionNumber ? parseInt(questionNumber) - 1 : 0
 
-  // Use useMemo before any early returns
   const options = useMemo(() => {
-    // Only shuffle if we have a valid question
     if (safeQuizes.length > 0 && currentQuestionNumber >= 0) {
       const question = safeQuizes[currentQuestionNumber]
       return shuffleOptions(question.correct_answer, question.incorrect_answers)
@@ -39,8 +36,6 @@ const Quiz = () => {
       navigate('/')
     }
   }, [session, navigate])
-
-  // Early returns at the end
   if (loading) {
     return (
       <div className="h-screen flex justify-center items-center">
@@ -54,7 +49,6 @@ const Quiz = () => {
   const question = safeQuizes[currentQuestionNumber]
 
   const handleClick = (option: string, index: SetStateAction<number | null | undefined>) => {
-    console.log(option, index)
     setSelectedOption(index)
     setUserAnswers((prev: any)=>({
       ...prev,[currentQuestionNumber]:option

@@ -1,17 +1,32 @@
 import Gauge from "./Guage"
 import popper from "../assets/icons/popper.svg"
 import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { HashLoader } from "react-spinners"
 
 const Result = () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
     const { score, correctScore, incorrectScore } = location.state;
     console.log(incorrectScore)
     const scorePercent = (score / 5) * 100
-
+    useEffect(()=>{
+        const timer = setTimeout(() => setLoading(false), 2000);
+        return () => clearTimeout(timer);
+    },[])
     const handleClick = () => {
+        
         navigate('/')
     }
+
+    if (loading) {
+        return (
+          <div className="h-screen flex justify-center items-center">
+            <HashLoader size={90} color="#e50ef7" />
+          </div>
+        )
+      }
     return (
         <div className="h-screen">
             <div className="flex justify-center">
