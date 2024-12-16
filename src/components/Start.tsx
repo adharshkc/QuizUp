@@ -7,12 +7,11 @@ const Start = () => {
    const handleClick = ()=>{
     const session = "user" +" " + Math.floor(Math.random()*100)
          sessionStorage.setItem("userSession", session)
-        navigate('/quiz')
+        navigate('/quiz/1')
     }
     return (
         <div className="h-screen ">
             <div className="flex justify-center pt-10">
-
                 <img src={logo} width={300} alt="logo" />
             </div>
             <div className="text-black pt-28">
